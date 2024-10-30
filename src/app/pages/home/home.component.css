@@ -1,0 +1,17 @@
+.container{
+    display: grid;
+    justify-items: center;
+}
+
+img{
+    width: 30%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.carousel-item img {
+    width: 100px;
+    height: 550px; /* Ajusta esta altura según tus necesidades */
+    object-fit: cover; /* o 'cover' dependiendo del efecto deseado */
+  }
+  

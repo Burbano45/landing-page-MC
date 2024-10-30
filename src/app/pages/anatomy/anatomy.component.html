@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .table-hover tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .img-thumbnail {
+      width: 100px;
+      height: auto;
+    }
+
+    .custom-header {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+  <title>Anatomía</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="my-4">Esto es la anatomía</h2>
+    <table class="table table-hover">
+      <thead class="custom-header">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Url</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Ejemplo de fila de la tabla -->
+
+        @for (anatomy of anatomyList; track $index){
+        <tr>
+          <th scope="row">{{anatomy.id}}</th>
+          <td>{{anatomy.titulo}}</td>
+          <td>{{anatomy.descripcion}}</td>
+          <td>{{anatomy.url}}</td>
+          <!-- <td><a href="#" class="btn btn-link"> </a></td> -->
+          <td>
+            <img src="../../../assets/touch_home.png" class="img-fluid img-thumbnail" alt="...">
+          </td>
+          <td><button type="button" class="btn btn-outline-primary" (click)="navegate(anatomy.id)"> -></button></td>
+        </tr>
+        }
+
+
+        <!-- Más filas aquí -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

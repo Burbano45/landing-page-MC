@@ -1,0 +1,16 @@
+<div class="container">
+    @if (loading){
+        <h5>loading...</h5>
+    }
+    
+    @if (!loading){
+        <div class="card" style="width: 18rem;">
+            <img src="{{anatomy?.archivo}}" class="card-img-top" alt="{{anatomy?.titulo}}">
+            <div class="card-body">
+              <h5 class="card-title">{{anatomy?.titulo}}</h5>
+              <h3 class="card-text">{{anatomy?.descripcion}}</h3>
+            </div>
+          </div>
+    }
+</div>
+
