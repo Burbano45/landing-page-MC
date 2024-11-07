@@ -1,0 +1,35 @@
+.anatomy-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .anatomy-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+  }
+  
+  .anatomy-card img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .anatomy-card .content h5 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .anatomy-card .content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .anatomy-card .btn {
+    margin-top: 10px;
+  }
+  

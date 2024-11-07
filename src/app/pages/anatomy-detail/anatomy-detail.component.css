@@ -1,5 +1,21 @@
-.container{
+/* .container{
     display: flex;
     justify-content: center;
 
+} */
+
+.card-img-top {
+    transition: transform 0.3s ease;
+    width: 100%;           /* Ajusta el ancho al 100% del contenedor */
+    height: 200px;         /* Define una altura fija para las imágenes */
+    object-fit: cover;     /* Recorta y centra la imagen si es necesario */
+    border-radius: 10px;   /* Opcional: bordes redondeados */
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+.modal-body img {
+    margin-bottom: 15px;
 }

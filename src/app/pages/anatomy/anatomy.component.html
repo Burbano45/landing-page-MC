@@ -1,68 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
+<section class="container my-5">
+  <h2 class="text-center mb-4">Explora las Regiones Anatómicas</h2>
+  <div class="row">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .table-hover tbody tr:hover {
-      background-color: #f5f5f5;
-    }
+    <!-- Bucle para generar una tarjeta por cada elemento en anatomyList -->
+    <div class="col-md-4 mb-4" *ngFor="let anatomy of anatomyList; let i = index">
+      <div class="card text-center"> <!-- Añade 'text-center' para centrar los contenidos de la tarjeta -->
+        <img [src]="'/assets/imgs/'+anatomy.imagen_url || '/assets/imgs/default.png'" class="card-img-top" [alt]="anatomy.titulo">
+        <div class="card-body">
+          <h5 class="card-title">{{ anatomy.titulo }}</h5>
+          <p class="card-text">{{ anatomy.descripcion }}</p>
 
-    .img-thumbnail {
-      width: 100px;
-      height: auto;
-    }
+          <!-- Botón para abrir el modal con información específica -->
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + i"
+                  (click)="navegate(anatomy.id)">
+            Ver más
+          </button>
+        </div>
+      </div>
+    </div>
 
-    .custom-header {
-      background-color: #4CAF50;
-      color: white;
-    }
-  </style>
-  <title>Anatomía</title>
-</head>
-
-<body>
-  <div class="container">
-    <h2 class="my-4">Esto es la anatomía</h2>
-    <table class="table table-hover">
-      <thead class="custom-header">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Titulo</th>
-          <th scope="col">Descripción</th>
-          <th scope="col">Url</th>
-          <th scope="col">Imagen</th>
-          <th scope="col">Detalle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Ejemplo de fila de la tabla -->
-
-        @for (anatomy of anatomyList; track $index){
-        <tr>
-          <th scope="row">{{anatomy.id}}</th>
-          <td>{{anatomy.titulo}}</td>
-          <td>{{anatomy.descripcion}}</td>
-          <td>{{anatomy.url}}</td>
-          <!-- <td><a href="#" class="btn btn-link"> </a></td> -->
-          <td>
-            <img src="../../../assets/touch_home.png" class="img-fluid img-thumbnail" alt="...">
-          </td>
-          <td><button type="button" class="btn btn-outline-primary" (click)="navegate(anatomy.id)"> -></button></td>
-        </tr>
-        }
-
-
-        <!-- Más filas aquí -->
-      </tbody>
-    </table>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+</section>

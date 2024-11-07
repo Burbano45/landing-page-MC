@@ -1,16 +1,57 @@
 <div class="container">
-    @if (loading){
-        <h5>loading...</h5>
-    }
-    
-    @if (!loading){
-        <div class="card" style="width: 18rem;">
-            <img src="{{anatomy?.archivo}}" class="card-img-top" alt="{{anatomy?.titulo}}">
-            <div class="card-body">
-              <h5 class="card-title">{{anatomy?.titulo}}</h5>
-              <h3 class="card-text">{{anatomy?.descripcion}}</h3>
-            </div>
-          </div>
-    }
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let recurso of anatomy">
+      <div class="card">
+        <!-- Verificación del tipo de archivo -->
+        <ng-container *ngIf="recurso.tipo_archivo === 'video'; else imageTemplate">
+          <!-- Video con controles y mensaje alternativo si no se encuentra el archivo -->
+          <video class="card-img-top" controls [title]="recurso.descripcion">
+            <source [src]="'/assets/videos/' + (recurso.archivo || 'default.mp4')" type="video/mp4">
+            Tu navegador no soporta la reproducción de este formato de video.
+          </video>
+        </ng-container>
+        <ng-template #imageTemplate>
+          <!-- Imagen con manejo de error para mostrar imagen predeterminada si no existe -->
+          <img [src]="'/assets/imgs/' + recurso.archivo" class="card-img-top" [alt]="recurso.titulo"
+            data-bs-toggle="tooltip" data-bs-placement="top" [title]="recurso.descripcion"
+            (error)="onImageError($event)">
+        </ng-template>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ recurso.titulo }}</h5>
+          <button type="button" class="btn btn-primary" (click)="openModal(recurso)">Ver más</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- Modal para mostrar detalles del recurso -->
+<div class="modal fade" id="anatomyDetailModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true"
+  #anatomyModal>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">{{ selectedRecurso?.titulo }}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Mostrar video o imagen según el tipo de archivo, con manejo para archivo inexistente -->
+        <ng-container *ngIf="selectedRecurso?.tipo_archivo === 'video'; else modalImage">
+          <video class="img-fluid mb-3" controls>
+            <source [src]="'/assets/videos/' + (selectedRecurso?.archivo || 'default.mp4')" type="video/mp4">
+            Tu navegador no soporta la reproducción de este formato de video.
+          </video>
+        </ng-container>
+        <ng-template #modalImage>
+          <img [src]="'/assets/imgs/' + selectedRecurso?.archivo" class="img-fluid mb-3" [alt]="selectedRecurso?.titulo"
+            (error)="onImageError($event)">
+        </ng-template>
+        <p>{{ selectedRecurso?.descripcion }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
