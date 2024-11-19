@@ -1,0 +1,38 @@
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.progress-bar {
+  background-color: #28a745; /* Verde de Bootstrap */
+}
+
+h2, h3 {
+  color: #343a40;
+}
+
+.btn-outline-primary {
+  width: 100%;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.container {
+  max-width: 800px;
+}
+
+.quiz-option {
+  width: 100%;       /* Ancho completo del contenedor */
+  height: 300px;     /* Altura fija para todas las imágenes */
+  object-fit: cover; /* Recorta la imagen manteniendo las proporciones */
+  border-radius: 10px; /* Bordes redondeados opcionales */
+}
+

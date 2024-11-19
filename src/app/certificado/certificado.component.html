@@ -1,0 +1,12 @@
+<div *ngIf="showResults" class="text-center">
+    <h3>Resultados</h3>
+    <p>Tu puntuación: {{ score }} / {{ questions.length }}</p>
+    
+    <div *ngIf="score >= passingScore">
+      <p>¡Felicidades! Has pasado el quiz.</p>
+      <app-certificado></app-certificado>
+    </div>
+    
+    <button (click)="restartQuiz()" class="btn btn-primary">Reiniciar Quiz</button>
+  </div>
+  
