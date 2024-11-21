@@ -1,18 +1,35 @@
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Bienvenido al Quiz de Anatomía</h2>
+<br><br><div class="container mt-5">
+  <h1 class="text-center mb-4 text-primary"> 🌟 ¡Bienvenido al quiz de anatomía! 🌟</h1>
 
   <!-- Formulario de Registro -->
-  <div *ngIf="!quizStarted && !showResults">
+  <div *ngIf="!quizStarted && !showResults" class="quiz-form p-4 rounded shadow">
     <form (ngSubmit)="startQuiz()">
       <div class="mb-3">
-        <label for="studentName" class="form-label"> Nombre y apellidos:</label>
-        <input type="text" id="studentName" class="form-control" [(ngModel)]="student.name" name="name" required>
+        <label for="studentName" class="form-label fw-bold">Nombre y apellidos:</label>
+        <input 
+          type="text" 
+          id="studentName" 
+          class="form-control" 
+          [(ngModel)]="student.name" 
+          name="name" 
+          placeholder="Ingresa tu nombre completo" 
+          required>
       </div>
       <div class="mb-3">
-        <label for="studentCode" class="form-label">Código estudiantil:</label>
-        <input type="text" id="studentCode" class="form-control" [(ngModel)]="student.code" name="code" required>
+        <label for="studentCode" class="form-label fw-bold">Código estudiantil:</label>
+        <input 
+          type="text" 
+          id="studentCode" 
+          class="form-control" 
+          [(ngModel)]="student.code" 
+          name="code" 
+          placeholder="Ingresa tu código" 
+          required>
       </div>
-      <button type="submit" class="btn btn-primary w-100" [disabled]="!student.name || !student.code">
+      <button 
+        type="submit" 
+        class="btn btn-primary w-100 btn-gradient" 
+        [disabled]="!student.name || !student.code">
         Iniciar Quiz
       </button>
     </form>
@@ -26,20 +43,26 @@
   </div>
 
   <!-- Quiz -->
-  <div *ngIf="quizStarted && !showResults">
-    <h3 class="text-center">{{ student.name }}, ¡Buena suerte!</h3>
+  <div *ngIf="quizStarted && !showResults" class="quiz-container p-4 rounded shadow">
+    <h3 class="text-center text-primary">{{ student.name }}, ¡Buena suerte!</h3>
 
+    <!-- Barra de progreso -->
     <div class="progress my-3">
-      <div class="progress-bar" [style.width]="(currentQuestionIndex / questions.length) * 100 + '%'"></div>
-    </div>
+  <div 
+    class="progress-bar bg-gradient" 
+    [style.width]="(currentQuestionIndex / questions.length) * 100 + '%'">
+  </div>
+</div>
 
+
+    <!-- Pregunta actual -->
     <div *ngIf="questions.length > 0" class="card">
       <div class="card-body">
-        <h4 class="card-title">{{ questions[currentQuestionIndex]?.pregunta }}</h4>
+        <h4 class="card-title text-primary">{{ questions[currentQuestionIndex]?.pregunta }}</h4>
         <div *ngFor="let option of questions[currentQuestionIndex]?.options">
           <button 
             (click)="submitAnswer(option)" 
-            class="btn btn-outline-primary mb-2 w-100">
+            class="btn btn-outline-primary mb-2 w-100 btn-gradient">
             <ng-container *ngIf="option.opcion_url; else textOption">
               <img [src]="'/assets/imgs/' + option.opcion_url" class="img-fluid quiz-option" alt="Opción">
             </ng-container>
@@ -52,17 +75,22 @@
     </div>
   </div>
 
-<!-- Resultados -->
-<div *ngIf="showResults" class="text-center">
-  <h3>Resultados</h3>
-  <p>Tu puntuación: {{ score }} / {{ questions.length }}</p>
-  <div *ngIf="score / questions.length >= passingScore" class="text-center">
-    <h3>¡Felicidades!</h3>
-    <p>Has completado el quiz con éxito.</p>
-    <button (click)="generateCertificate()" class="btn btn-success">Descargar Certificado</button>
+  <!-- Resultados -->
+  <div *ngIf="showResults" class="text-center">
+    <h3 class="text-primary">Resultados</h3>
+    <p>Tu puntuación: <span class="fw-bold">{{ score }} / {{ questions.length }}</span></p>
+    <div *ngIf="score / questions.length >= passingScore" class="text-center">
+      <!-- <h3>{{ quizName || 'Nombre del Quiz' }}</h3> -->
+      <h3 class="text-success">¡Felicidades!</h3>
+      <p>Has completado el quiz con éxito.</p>
+      <button (click)="generateCertificate()" class="btn btn-success btn-gradient">Descargar Certificado</button>
+    </div>
+    <div *ngIf="score / questions.length < passingScore">
+      <p>No alcanzaste el puntaje mínimo. ¡Inténtalo de nuevo!</p>
+      
+
+    </div>
+    <button (click)="restartQuiz()" class="btn btn-primary btn-gradient mt-3">Reiniciar Quiz</button>
   </div>
-  <div *ngIf="score / questions.length < passingScore">
-    <p>No alcanzaste el puntaje mínimo. ¡Inténtalo de nuevo!</p>
-  </div>
-  <button (click)="restartQuiz()" class="btn btn-primary mt-3">Reiniciar Quiz</button>
 </div>
+<br><br>

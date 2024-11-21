@@ -1,59 +1,70 @@
-<div class="container">
-  <div class="row">
+<br><br><div class="container my-5">
+  <h1 class="text-center mb-4">🌟 RECURSOS ANÁTOMICOS 🌟</h1>
+  <div class="row g-4">
+    <!-- Tarjetas dinámicas -->
     <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let recurso of anatomy">
-      <div class="card">
+      <div class="card shadow-sm border-0 h-100">
+        <!-- Video o Imagen -->
         <ng-container *ngIf="recurso.tipo_archivo === 'video'; else imageTemplate">
-          <video class="card-img-top" controls [title]="recurso.descripcion">
+          <video class="card-img-top rounded-top" controls [title]="recurso.descripcion">
             <source [src]="'/assets/videos/' + (recurso.archivo || 'default.mp4')" type="video/mp4">
             Tu navegador no soporta la reproducción de este formato de video.
           </video>
         </ng-container>
         <ng-template #imageTemplate>
-          <img [src]="'/assets/imgs/' + recurso.archivo" class="card-img-top" [alt]="recurso.titulo"
-            data-bs-toggle="tooltip" data-bs-placement="top" [title]="recurso.descripcion"
-            (error)="onImageError($event)">
+          <img [src]="'/assets/imgs/' + recurso.archivo" 
+               class="card-img-top rounded-top"
+               [alt]="recurso.titulo" 
+               (error)="onImageError($event)">
         </ng-template>
 
-        <div class="card-body">
-          <h5 class="card-title">{{ recurso.titulo }}</h5>
-          <!-- Botón para seleccionar recurso y abrir modal -->
-          <button type="button" class="btn btn-info" (click)="setSelectedRecurso(recurso); openModal()">Ver más</button>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold text-primary">{{ recurso.titulo }}</h5>
+          <p class="card-text text-muted">{{ recurso.descripcion }}</p>
+          <button type="button" class="btn btn-outline-info w-100 rounded-pill"
+                  (click)="setSelectedRecurso(recurso); openModal()">
+            Ver más
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal para mostrar detalles del recurso -->
+<!-- Modal para detalles -->
 <div class="modal fade" id="anatomyDetailModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true" #anatomyModal>
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalLabel">{{ selectedRecurso?.titulo }}</h5>
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title fw-bold" id="modalLabel">{{ selectedRecurso?.titulo }}</h5>
         <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
       </div>
       <div class="modal-body">
         <ng-container *ngIf="selectedRecurso?.tipo_archivo === 'video'; else modalImage">
-          <video class="img-fluid mb-3" controls>
+          <video class="img-fluid mb-3 rounded" controls>
             <source [src]="'/assets/videos/' + (selectedRecurso?.archivo || 'default.mp4')" type="video/mp4">
             Tu navegador no soporta la reproducción de este formato de video.
           </video>
         </ng-container>
         <ng-template #modalImage>
-          <img [src]="'/assets/imgs/' + selectedRecurso?.archivo" class="img-fluid mb-3" [alt]="selectedRecurso?.titulo" (error)="onImageError($event)">
+          <img [src]="'/assets/imgs/' + selectedRecurso?.archivo" 
+               class="img-fluid mb-3 rounded" 
+               [alt]="selectedRecurso?.titulo" 
+               (error)="onImageError($event)">
         </ng-template>
-        <p>{{ selectedRecurso?.descripcion }}</p>
+        <p class="text-muted">{{ selectedRecurso?.descripcion }}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-red" (click)="closeModal()">Cerrar</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="closeModal()">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Botón externo para iniciar el quiz -->
+<!-- Botón para iniciar el quiz -->
 <div class="text-center mt-4">
-  <button id="btn-quiz" class="btn btn-info" (click)="startQuiz()">
+  <button id="btn-quiz" class="btn btn-primary btn-lg px-4 py-2" (click)="startQuiz()">
     Iniciar Quiz
   </button>
 </div>
+<br><br>

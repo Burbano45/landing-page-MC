@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  menuOption: string = 'home'; // Opción activa predeterminada
+
+  onOption(option: string) {
+    this.menuOption = option; // Actualiza la opción activa
+  }
+
 }

@@ -1,17 +1,51 @@
-.container{
-    display: grid;
-    justify-items: center;
-}
-
-img{
-    width: 30%;
-    height: 50%;
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Jumbotron */
+  .jumbotron {
+    margin-top: 100px;
+    background: linear-gradient(45deg, #0056b3, #007bff);
+    color: white;
+    border-radius: 15px;
+    padding: 1rem;
+  }
+  
+  .jumbotron h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .jumbotron .btn {
+    background: white;
+    color: #007bff;
+    font-weight: bold;
+    border: none;
+  }
+  
+  .jumbotron .btn:hover {
+    background: #0056b3;
+    color: white;
+  }
+  
+  /* Carrusel */
+  .carousel img {
+     height: 650px;
     object-fit: cover;
-}
+    border-radius: 15px; 
 
-.carousel-item img {
-    width: 100px;
-    height: 550px; /* Ajusta esta altura según tus necesidades */
-    object-fit: cover; /* o 'cover' dependiendo del efecto deseado */
+    /* height: 100%; Asegura que la imagen ocupe toda la altura del contenedor */
+    width: 100%; /* Asegura que la imagen ocupe toda la anchura del contenedor */
+    object-fit: cover; /* Mantiene el recorte de la imagen sin distorsión */
+    border-radius: 15px;
+  }
+  
+  /* Footer */
+  footer {
+    background: #0056b3;
+    color: white;
+    font-size: 0.9rem;
+    padding: 1rem 0;
   }
   

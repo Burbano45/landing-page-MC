@@ -1,42 +1,55 @@
-/* .container{
-    display: flex;
-    justify-content: center;
-
-} */
-
+/* Estilo general */
 .card-img-top {
+    height: 200px;         /* Altura fija para uniformidad */
+    object-fit: cover;     /* Recorta la imagen/video si es necesario */
     transition: transform 0.3s ease;
-    width: 100%;           /* Ajusta el ancho al 100% del contenedor */
-    height: 200px;         /* Define una altura fija para las imágenes */
-    object-fit: cover;     /* Recorta y centra la imagen si es necesario */
-    border-radius: 10px;   /* Opcional: bordes redondeados */
-}
-
-.card-img-top:hover {
-    transform: scale(1.1);
-}
-
-.modal-body img {
-    margin-bottom: 15px;
-}
-
-.btn-quiz{
-    display: flex;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    width: 100%;           /* Ajusta el ancho al 100% del contenedor */
-    height: 200px;         /* Define una altura fija para las imágenes */
-    object-fit: cover;     /* Recorta y centra la imagen si es necesario */
-    border-radius: 10px;   /* Opcional: bordes redondeados */
-}
-
-.btn-outline-red {
-    border-color: rgb(170, 168, 168);
-    color: rgb(0, 0, 0);
-}
-
-.btn-outline-red:hover {
-    background-color: red;
+  }
+  
+  .card-img-top:hover {
+    transform: scale(1.05); /* Zoom al pasar el cursor */
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .modal-body img,
+  .modal-body video {
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  /* Botón de inicio del quiz */
+  #btn-quiz {
+    font-size: 1.25rem;
+    background: linear-gradient(45deg, #007bff, #0056b3);
     color: white;
-}
-
+    border: none;
+    border-radius: 50px;
+    transition: background 0.3s ease;
+  }
+  
+  #btn-quiz:hover {
+    background: linear-gradient(45deg, #0056b3, #004080);
+  }
+  
+  /* Botón de cerrar del modal */
+  .btn-outline-secondary {
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #dc3545; /* Rojo claro */
+    color: white;
+    border-color: #dc3545;
+  }
+  

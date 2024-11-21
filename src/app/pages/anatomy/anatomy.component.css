@@ -1,35 +1,19 @@
-.anatomy-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .anatomy-card {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: 30%;
-  }
-  
-  .anatomy-card img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 15px;
-  }
-  
-  .anatomy-card .content h5 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
-  
-  .anatomy-card .content p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
-  
-  .anatomy-card .btn {
-    margin-top: 10px;
-  }
-  
+/* Mejora de las imágenes */
+.card-img-top img {
+  object-fit: cover;
+  height: 200px;
+  border-color: black;
+}
+
+/* Sombra y animación en hover */
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiqueta superior */
+.badge {
+  font-size: 0.9rem;
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+}

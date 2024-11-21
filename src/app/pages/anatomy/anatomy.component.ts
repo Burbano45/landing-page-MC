@@ -31,6 +31,8 @@ export class AnatomyComponent implements OnInit {
       });
   }
 
+  
+
   navegate(id: number): void{
     this._router.navigate(['/anatomys', id]);
   }

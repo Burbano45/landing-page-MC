@@ -1,0 +1,23 @@
+/* Navbar Gradiente */
+.bg-gradient-primary {
+    background: linear-gradient(45deg, #003fb3, #007bff);
+    color: white;
+  }
+  
+  /* Enlace activo */
+  .navbar-nav .nav-link.active {
+    color: #ffffff !important; /* Color amarillo */
+    font-weight: bold;
+    border-bottom: 4px solid #07ff8b; /* Línea amarilla debajo */
+  }
+  
+  /* Hover en los enlaces */
+  .navbar-nav .nav-link:hover {
+    color: #f8f9fa; /* Blanco */
+  }
+  
+  /* Ajustes de sombras */
+  .shadow-sm {
+    box-shadow: 0 4px 8px rgba(212, 6, 6, 0.2);
+  }
+  

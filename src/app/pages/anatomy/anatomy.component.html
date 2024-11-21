@@ -1,23 +1,29 @@
+<br><br>
 <section class="container my-5">
-  <h2 class="text-center mb-4">Explora las Regiones Anatómicas</h2>
-  <div class="row">
-
-    <!-- Bucle para generar una tarjeta por cada elemento en anatomyList -->
-    <div class="col-md-4 mb-4" *ngFor="let anatomy of anatomyList; let i = index">
-      <div class="card text-center"> <!-- Añade 'text-center' para centrar los contenidos de la tarjeta -->
-        <img [src]="'/assets/imgs/'+anatomy.imagen_url || '/assets/imgs/default.png'" class="card-img-top" [alt]="anatomy.titulo">
-        <div class="card-body">
-          <h5 class="card-title">{{ anatomy.titulo }}</h5>
-          <p class="card-text">{{ anatomy.descripcion }}</p>
-
-          <!-- Botón para abrir el modal con información específica -->
-          <button type="button" class="btn btn-info" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + i"
+  <h2 class="text-center mb-4">🌟 Explora las regiones anatómicas 🌟</h2><br><br>
+  <div class="row justify-content-center">
+    <!-- Tarjetas dinámicas -->
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let anatomy of anatomyList; let i = index">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-img-top position-relative">
+          <img [src]="'/assets/imgs/'+anatomy.imagen_url || '/assets/imgs/default.png'" 
+               class="img-fluid rounded-top" 
+               [alt]="anatomy.titulo" 
+               onerror="this.src='/assets/imgs/default.png'">
+          <!-- Etiqueta opcional sobre la imagen -->
+          <div class="badge bg-primary position-absolute top-0 end-0 m-2 p-2">
+            Sección #{{ i + 1 }}
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">{{ anatomy.titulo }}</h5>
+          <p class="card-text text-muted">{{ anatomy.descripcion }}</p>
+          <button type="button" class="btn btn-outline-info rounded-pill px-4"
                   (click)="navegate(anatomy.id)">
             Ver más
           </button>
         </div>
       </div>
     </div>
-
   </div>
 </section>

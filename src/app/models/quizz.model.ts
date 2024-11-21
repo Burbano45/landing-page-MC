@@ -18,4 +18,13 @@ export interface Question {
     quizId: number;
     answer: string;
   }
+
+  export interface Question {
+    id: number;
+    pregunta: string;
+    respuesta_correcta: string;
+    tipo_pregunta: string;
+    recurso_id: number;
+    titulo_seccion?: string; // Agrega esta propiedad
+  }
   

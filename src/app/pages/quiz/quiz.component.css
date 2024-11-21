@@ -1,38 +1,44 @@
-.card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-weight: bold;
-}
-
-.progress-bar {
-  background-color: #28a745; /* Verde de Bootstrap */
-}
-
-h2, h3 {
+body {
+  background-color: #f8f9fa; /* Fondo claro */
   color: #343a40;
 }
 
-.btn-outline-primary {
-  width: 100%;
-  border-radius: 25px;
-  transition: background-color 0.3s;
+h2, h3 {
+  font-weight: bold;
 }
 
-.btn-outline-primary:hover {
-  background-color: #007bff;
-  color: white;
+.quiz-form, .quiz-container {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
 }
 
-.container {
-  max-width: 800px;
+.btn-gradient {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #0056b3, #003c7a);
+  transform: scale(1.02);
+}
+
+.text-primary {
+  color: #007bff !important;
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #007bff, #0056b3);
 }
 
 .quiz-option {
-  width: 100%;       /* Ancho completo del contenedor */
-  height: 300px;     /* Altura fija para todas las imágenes */
-  object-fit: cover; /* Recorta la imagen manteniendo las proporciones */
-  border-radius: 10px; /* Bordes redondeados opcionales */
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
 }
-
