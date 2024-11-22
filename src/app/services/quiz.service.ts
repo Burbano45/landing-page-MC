@@ -4,10 +4,14 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators'; // Importa tap
 import { Question, Answer } from '../models/quizz.model';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
+
+  
 
   private baseUrl = 'http://localhost:8080'; // Cambiar a la URL de producción si es necesario
 
